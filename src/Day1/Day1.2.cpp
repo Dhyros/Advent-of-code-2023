@@ -64,7 +64,7 @@ int main(int argc, char **argv) {
 
     string line;
     int sum = 0;
-    vector<string> numbers = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", 
+    vector<string> numbers = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
                               "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     // map that stores the positions of each number in the line
     map<string, vector<int>> numbers_pos;
@@ -74,9 +74,9 @@ int main(int argc, char **argv) {
         numbers_pos.clear();
 
         for (unsigned int i=0; i<numbers.size(); i++) {
-            vector<int> positions_string = find_all_occurences(line, numbers.at(i));
-            if (!positions_string.empty()) {
-                numbers_pos[numbers.at(i)] = positions_string;
+            vector<int> positions = find_all_occurences(line, numbers.at(i));
+            if (!positions.empty()) {
+                numbers_pos[numbers.at(i)] = positions;
             }
         }
         int digit1 = (find(numbers.begin(), numbers.end(), min_value(numbers_pos)) - numbers.begin()) % 10;
